@@ -1,4 +1,6 @@
 site_name: Fluxional
+repo_url: https://github.com/fluxional-dev/fluxional
+repo_name: Fluxional
 theme:
   name: material
   palette:
@@ -7,6 +9,8 @@ theme:
     - content.code.copy
   logo: assets/logo.png
   favicon: assets/logo.png
+  icon:
+    repo: fontawesome/brands/github
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
