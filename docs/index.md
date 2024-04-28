@@ -1,8 +1,9 @@
 # 🚀 AWS Serverless Development All In Python 🐍
 
-!!! warning end "Documentation"
+!!! warning end "On-Going Documentation"
 
     This documentation is a work in progress. If you have any questions or need help, please reach out to us.
+    Join our 👉 [Discord](https://discord.gg/x8W4h5rT)
 
 <b class="theme-primary-light">Fluxional</b> is designed to simplify the development and deployment of serverless applications on AWS with <u>minimal</u> configuration.<br>
 
