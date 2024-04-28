@@ -1,7 +1,6 @@
 # 🚀 AWS Serverless Development All In Python 🐍
 
-[![](https://img.shields.io/discord/1234210853574807668?color=5865F2&logo=Discord&style=flat-square)](https://discord.semikolan.co)
-
+<img src="https://discordapp.com/api/guilds/1234210853574807668/widget.png?style=shield" alt="Discord Shield"/>
 
 #### This is a work in progress. If you have any questions or need help, please reach out to us.
 
