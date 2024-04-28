@@ -25,4 +25,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
+      - run: mkdocs build
+      - name: Add CNAME
+        run: echo 'yourcustomdomain.com' > site/CNAME
       - run: mkdocs gh-deploy --force
