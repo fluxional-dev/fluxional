@@ -25,7 +25,13 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
-      - run: mkdocs build
-      - name: Add CNAME
-        run: echo 'yourcustomdomain.com' > site/CNAME
       - run: mkdocs gh-deploy --force
+      - name: Add CNAME
+        run: |
+          echo 'yourcustomdomain.com' > CNAME
+          git checkout gh-pages
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add CNAME
+          git commit -m "Add CNAME"
+          git push origin gh-pages
