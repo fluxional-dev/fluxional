@@ -160,7 +160,7 @@ $ fluxional destroy app.handler
 - Invoke your microservice locally 💻 and make live changes 🕘 without the need to mock your services or re-deploy.
 - Your code will be ran in a local container with the exact ✨ environment and behaviors your application will have in the cloud.
 
-\*\* Setting must be <u>enabled</u> and <u>deployed</u> before executing below <br>
+\*\* Setting must be <u>enabled</u> and <u>deployed</u> before executing below. <br>
 
 <div class="bash-code">
 ```bash
