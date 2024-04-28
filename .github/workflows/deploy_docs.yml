@@ -25,4 +25,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
+      - run: echo 'docs.fluxional.dev' > ./build/CNAME 
       - run: mkdocs gh-deploy --force
