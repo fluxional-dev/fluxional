@@ -28,7 +28,7 @@ jobs:
       - run: mkdocs gh-deploy --force
       - name: Add CNAME
         run: |
-          echo 'yourcustomdomain.com' > CNAME
+          echo 'docs.fluxional.dev' > CNAME
           git checkout gh-pages
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
