@@ -1,0 +1,44 @@
+site_name: Fluxional
+theme:
+  name: material
+  palette:
+    primary: custom
+  features:
+    - content.code.copy
+  logo: assets/logo.png
+  favicon: assets/logo.png
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - js/extra.js
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - md_in_html
+  - admonition
+  - pymdownx.details
+nav:
+  - 🐍 Serverless All In Python: index.md
+  - ✨ Concepts: concepts.md
+  - 📚 Get Started:
+      - Requirements: get_started/requirements.md
+      - First Steps: get_started/first_steps.md
+      - Resources:
+          - Rest API: get_started/rest_api.md
+          - Databases:
+              - Dynamodb: get_started/databases/dynamodb.md
+          - Storage (S3): get_started/storage.md
+          - Async Events: get_started/async_events.md
+          - Tasks: get_started/tasks.md
+          - Websockets: get_started/websockets.md
+      - Multiple Files: get_started/multiple_files.md
+      - Settings & Resources: get_started/settings.md
+      - Live Development: get_started/live_development.md
+      - Deployment: get_started/deployment.md
+      - Monitoring:
+          - 🔭 Open Telemetry: get_started/monitoring/opentelemetry.md

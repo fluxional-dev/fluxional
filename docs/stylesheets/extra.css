@@ -1,0 +1,33 @@
+.index-title {
+  font-size: 0.98rem;
+  font-weight: 300;
+}
+
+.global-text {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.bash-code code {
+  background-color: #12171a;
+  color: white;
+}
+
+.concepts-code code {
+  background-color: #ffff;
+  color: white;
+}
+
+.theme-primary-light {
+  color: var(--light-purple);
+}
+
+#aws-serverless-development-all-in-python {
+  color: var(--dark-purple);
+}
+
+:root {
+  --light-purple: #631d76;
+  --dark-purple: #4c0827;
+  --md-primary-fg-color: var(--light-purple);
+}
