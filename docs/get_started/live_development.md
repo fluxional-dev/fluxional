@@ -1,4 +1,4 @@
-This work is inspired by the developers at [SST.DEV](https://docs.sst.dev/live-lambda-development).
+This work is inspired by the developers at [sst](https://docs.sst.dev/live-lambda-development).
 
 Enable the following setting in your code:
 
