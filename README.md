@@ -1,6 +1,6 @@
 # 🚀 AWS Serverless Development All In Python 🐍
 
-![Discord Banner 3](https://discordapp.com/api/guilds/x8W4h5rT/widget.png?style=banner3)
+![Discord Shield](https://discordapp.com/api/guilds/1234210853574807668/widget.png?style=shield)
 
 #### This is a work in progress. If you have any questions or need help, please reach out to us.
 
