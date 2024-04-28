@@ -1,3 +1,5 @@
+This work is inspired by the developers at [SST.DEV](https://docs.sst.dev/live-lambda-development).
+
 Enable the following setting in your code:
 
 ```python
