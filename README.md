@@ -14,7 +14,18 @@ Key features:<br>
 - Deployment only require credentials and docker
 - Live interaction with your cloud application as you code
 - Focused on developer experience with intuitive syntax and editor / type support
+  <br>
+
+Get started with
+
+```bash
+
+pip install fluxional
+
+```
+
 <br>
+
 <div class="index-title">1) Infrastructure is <u>simplified</u> and <u>part</u> of your code</div><br>
 
 😎 Rest API
