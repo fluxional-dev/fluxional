@@ -16,7 +16,7 @@ Key features:<br>
 - Focused on developer experience with intuitive syntax and editor / type support
   <br>
 
-Get started with
+Get started with:
 
 ```bash
 
