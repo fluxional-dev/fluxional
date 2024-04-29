@@ -24,8 +24,6 @@ pip install fluxional
 
 ```
 
-<br>
-
 <div class="index-title">1) Infrastructure is <u>simplified</u> and <u>part</u> of your code</div><br>
 
 😎 Rest API
