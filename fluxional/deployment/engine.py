@@ -29,7 +29,9 @@ from fluxional.utils import (
 from rich.console import Console
 from rich import print as rp
 from typing import Any, Literal
+from fluxional import __version__
 import re
+
 
 load_dotenv()
 
@@ -335,6 +337,12 @@ class CDKEngine(Engine):
             dockerfile += (
                 f"\nRUN pip install -r {requirements_file}"
                 # Needs to be escaped once for the echo cmd
+                + r' --target "\${LAMBDA_TASK_ROOT}"'
+            )
+        else:
+            # We will always need fluxional installed
+            dockerfile += (
+                f"\nRUN pip install fluxional=={__version__}"
                 + r' --target "\${LAMBDA_TASK_ROOT}"'
             )
 
