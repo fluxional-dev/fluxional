@@ -25,3 +25,6 @@ __all__ = [
     "TaskEvent",
     "StorageEvent",
 ]
+
+
+__version__ = "0.1.3"
