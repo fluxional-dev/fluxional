@@ -42,20 +42,3 @@ For development purposes use the following policy on your AWS user. For <u>produ
   ]
 }
 ```
-
-#### Install Fluxional Via Pip
-
-<div class="bash-code">
-Install fluxional using:
-
-```
-pip install fluxional
-```
-
-If you plan to use the real-time development feature, install:
-
-```
-pip install "fluxional[dev]"
-```
-
-</div>

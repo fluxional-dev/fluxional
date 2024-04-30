@@ -1,4 +1,16 @@
-The first step in using fluxional is to create a main entry file in this case we will create an <b>app.py</b> file and import
+#### Install Fluxional Via Pip
+
+<div class="bash-code">
+Install fluxional using:
+
+```
+pip install fluxional
+```
+
+</div>
+
+<br>
+Create a main entry file in this case we will create an <b>app.py</b> file and import
 Fluxional. Next, declare an instance of the app with a <b>unique id</b> (CamelCase) across the aws account, in this case "GetStarted":
 
 ```python title="app.py"
@@ -58,3 +70,13 @@ $ fluxional deploy app.handler
 </div>
 
 And voilà! Your application is now deployed and ready to use. Lookout for the output url in the console.
+
+To destroy your application run:
+
+<div class="bash-code">
+
+```bash
+$ fluxional destroy app.handler
+```
+
+</div>
