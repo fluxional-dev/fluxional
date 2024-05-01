@@ -17,7 +17,10 @@ from api import flux as api_flux
 
 flux = Fluxional("AwesomeProject")
 
-flux.register(api_flux)
+flux.configure(
+    dependencies=["api.py"] # include the api file
+)
+flux.register(api_flux) # register the resource
 
 handler = flux.handler()
 
