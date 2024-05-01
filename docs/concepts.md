@@ -95,4 +95,5 @@ Let's look at deploying a simple Rest-API that returns hello world
 
 We have all been there, unit tests work, integration tests with local mocks works, we deploy and wait for a minute.
 And then an unexpected error occurs such as say Cors, forgotten permissions. <br> <br>Now we wait for another minute to deploy
-and so on and so forth. Fluxional accelerate this by allowing to develop with a live lambda with the exact environment
+and so on and so forth. Fluxional accelerate this by allowing to develop with a live lambda with the exact environment. This work
+is inspired by the developers at [sst](https://docs.sst.dev/live-lambda-development).

@@ -1,7 +1,6 @@
 #### Install Fluxional Via Pip
 
 <div class="bash-code">
-Install fluxional using:
 
 ```
 pip install fluxional
@@ -9,9 +8,8 @@ pip install fluxional
 
 </div>
 
-<br>
-Create a main entry file in this case we will create an <b>app.py</b> file and import
-Fluxional. Next, declare an instance of the app with a <b>unique id</b> (CamelCase) across the aws account, in this case "GetStarted":
+Create a main entry <b>app.py</b> file. Import
+Fluxional and declare an instance of the app with a <b>unique id</b> (CamelCase) across the aws account, in this case "GetStarted":
 
 ```python title="app.py"
 from fluxional import Fluxional

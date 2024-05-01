@@ -35,10 +35,6 @@ Key features:<br>
     handler = flux.handler()
     ```
 
-    !!! note "Fast API Deployment Tutorial"
-
-        Tutorial on how to deploy a FastAPI project here 👉: (Coming Soon)
-
 === "📲 Websockets"
 
     ```python title="app.py" linenums="1"
@@ -58,11 +54,6 @@ Key features:<br>
 
     handler = flux.handler()
     ```
-
-
-    !!! note "AI Chat Tutorial"
-
-        Tutorial on how to deploy an AI Chat project here 👉: (Coming Soon)
 
 === "🔐 Databases"
 
