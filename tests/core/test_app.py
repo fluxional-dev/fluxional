@@ -75,7 +75,14 @@ def test_websocket():
             "memory_size": 128,
             "timeout": 30,
             "description": "",
-            "permissions": [],
+            "permissions": [
+                {
+                    "allow_publish": True,
+                    "permission_type": "websocket_permission",
+                    "resource_id": "fluxional_websocket_gateway",
+                    "resource_type": "ws_gateway",
+                }
+            ],
         },
         "fluxional_websocket_gateway": {
             "id": "fluxional_websocket_gateway",
@@ -150,7 +157,13 @@ def test_websocket_with_db():
                     "allow_read": True,
                     "allow_write": True,
                     "permission_type": "dynamodb_permission",
-                }
+                },
+                {
+                    "allow_publish": True,
+                    "permission_type": "websocket_permission",
+                    "resource_id": "fluxional_websocket_gateway",
+                    "resource_type": "ws_gateway",
+                },
             ],
         },
         "fluxional_websocket_gateway": {

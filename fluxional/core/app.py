@@ -15,6 +15,7 @@ from .infrastructure.resources import (
     SqsQueue,
     SqsPermission,
     AllPermission,
+    WebsocketPermission,
 )
 from .infrastructure.types import (
     DynamoDBBillingModeT,
@@ -165,6 +166,14 @@ class App:
                 resource_id=websocket_lambda.id,
                 resource_type=websocket_lambda.resource_type,
                 allow_invoke=True,
+            )
+        )
+
+        websocket_lambda.permissions.append(
+            WebsocketPermission(
+                resource_id=websocket_api_gateway.id,
+                resource_type=websocket_api_gateway.resource_type,
+                allow_publish=True,
             )
         )
 
@@ -348,7 +357,7 @@ class App:
         if entity and any(attributes.values()):
             for k, v in attributes.items():
                 setattr(permission, k, v)
-            entity.permissions.append(permission)
+            entity.permissions.insert(0, permission)
 
     def _build_db_permissions(self):
         ## DYNAMODB PERMISSIONS ##
