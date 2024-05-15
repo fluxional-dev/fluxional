@@ -418,6 +418,11 @@ class Stack(CDKStack):
                         aws_s3_notifications.LambdaDestination(func)
                     )
 
+                    # This will cause a dependency error and makes no sense if on file upload
+                    # The lambda can't even read the file
+                    # We will refrain from writing though as that could create infinite loop for now
+                    bucket.grant_read(func)
+
     def add_resource_to_stack(self, resource: AllResources):
         if isinstance(resource, LambdaFunction):
             self.add_lambda_function(resource)
@@ -476,10 +481,13 @@ class Infrastructure:
         stack_builder = self.get_stack()
         ready: list[str] = []
         resources = self._infrastructure.resources
+        counter = 0
+        limit = 500
 
         # Build each resources based on dependencies resolution
         # Iterate until all resources are built
         while True:
+            counter += 1
             left = [
                 resources[stack_resource].id
                 for stack_resource in resources
@@ -511,6 +519,9 @@ class Infrastructure:
                 # Add the resource to the base infrastructure
                 stack_builder.add_resource_to_stack(resource)
                 ready.append(resource.id)
+
+            if counter > limit:
+                raise ValueError("Resource dependency loop detected")
 
             if not left:
                 break

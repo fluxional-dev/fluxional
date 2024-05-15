@@ -775,6 +775,50 @@ def test_add_s3_bucket():
     )
 
 
+def test_dependency_error():
+    infra = {
+        "settings": {
+            "aws_account_id": "123456789",
+            "aws_region": "us-east-1",
+            "stack_name": "TestStack",
+        },
+        "resources": {
+            "s3_bucket_id": {
+                "id": "s3_bucket_id",
+                "resource_type": "s3_bucket",
+                "bucket_name": "testbucket",
+                "remove_on_delete": True,
+                "permissions": [
+                    {
+                        "resource_id": "lambda_function_id",
+                        "resource_type": "lambda_function",
+                        "allow_invoke": True,
+                    }
+                ],
+            },
+            "lambda_function_id": {
+                "id": "lambda_function_id",
+                "resource_type": "lambda_function",
+                "function_name": "test_function",
+                "dockerfile": "/tests/core/Dockerfile.lambda",
+                "permissions": [
+                    {
+                        "resource_id": "s3_bucket_id",
+                        "resource_type": "s3_bucket",
+                        "allow_read": True,
+                        "allow_write": True,
+                        "allow_delete": True,
+                    }
+                ],
+            },
+        },
+    }
+
+    with pytest.raises(ValueError):
+        builder = Infrastructure.from_dict(infra)
+        builder.stack()
+
+
 def test_add_s3_bucket_with_lambda_invoke_permission():
     infra = {
         "settings": {
@@ -831,6 +875,22 @@ def test_add_s3_bucket_with_lambda_invoke_permission():
                         "Events": ["s3:ObjectRemoved:*"],
                     },
                 ]
+            },
+        },
+    )
+
+    template.has_resource(
+        "AWS::IAM::Policy",
+        {
+            "Properties": {
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": ["s3:GetObject*", "s3:GetBucket*", "s3:List*"],
+                            "Effect": "Allow",
+                        },
+                    ],
+                },
             },
         },
     )
