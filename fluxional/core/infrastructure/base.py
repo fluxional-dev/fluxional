@@ -43,6 +43,7 @@ from aws_cdk import (
 )
 from aws_cdk.aws_apigatewayv2_integrations_alpha import WebSocketLambdaIntegration
 from aws_cdk.aws_apigatewayv2 import WebSocketApi
+from aws_cdk.aws_s3 import HttpMethods
 from fluxional.exceptions import MissingStackResource
 from fluxional.utils import default_aws_account_id, default_aws_region
 from fluxional.core.tools import LookupKey
@@ -403,6 +404,24 @@ class Stack(CDKStack):
             id=resource.id,
             bucket_name=resource.bucket_name,
             remove_on_delete=resource.remove_on_delete,
+        )
+
+        # @TODO Move this to add s3 to stack and add tests
+        # To ensure cors is added correctly
+        http_methods_mapper = {
+            "get": HttpMethods.GET,
+            "put": HttpMethods.PUT,
+            "post": HttpMethods.POST,
+            "delete": HttpMethods.DELETE,
+        }
+
+        bucket.add_cors_rule(
+            allowed_headers=resource.allowed_headers,
+            allowed_methods=[
+                http_methods_mapper[k.lower()] for k in resource.allowed_methods
+            ],
+            allowed_origins=resource.allowed_origins,
+            max_age=resource.max_age,
         )
 
         if resource.permissions:

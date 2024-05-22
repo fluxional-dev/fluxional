@@ -182,7 +182,13 @@ class App:
             return
 
         # Resources
-        self.add_storage_bucket(remove_on_delete=self.settings.storage.remove_on_delete)
+        self.add_storage_bucket(
+            remove_on_delete=self.settings.storage.remove_on_delete,
+            allowed_origins=self.settings.storage.allowed_origins,
+            allowed_methods=self.settings.storage.allowed_methods,
+            allowed_headers=self.settings.storage.allowed_headers,
+            max_age=self.settings.storage.max_age,
+        )
 
         if isinstance(self.storage_bucket, S3Bucket):
             resources[self.storage_bucket.id] = self.storage_bucket
@@ -621,6 +627,10 @@ class App:
         self,
         bucket_name: str | None = None,
         remove_on_delete: bool = True,
+        allowed_origins: list[str] = [],
+        allowed_methods: list[str] = [],
+        allowed_headers: list[str] = [],
+        max_age: int = 0,
     ) -> None:
         """
         Add an Storage bucket to the application
@@ -637,6 +647,10 @@ class App:
                 + safe(self.settings.system.default_storage_bucket_id)
             ),
             remove_on_delete=remove_on_delete,
+            allowed_origins=allowed_origins,
+            allowed_methods=allowed_methods,
+            allowed_headers=allowed_headers,
+            max_age=max_age,
         )
 
         self.storage_bucket = storage_bucket

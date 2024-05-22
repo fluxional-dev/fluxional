@@ -151,6 +151,10 @@ class SqsQueue(_ResourceT):
 class S3Bucket(_ResourceT):
     bucket_name: str
     remove_on_delete: bool = field(default=True)
+    allowed_origins: list[str] = field(default_factory=list)
+    allowed_methods: list[str] = field(default_factory=list)
+    allowed_headers: list[str] = field(default_factory=list)
+    max_age: int = field(default=0)
     resource_type: Literal["s3_bucket"] = field(default="s3_bucket")
 
 
