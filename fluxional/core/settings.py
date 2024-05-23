@@ -49,6 +49,8 @@ class SystemSettings:
     container_command: Optional[str] = field(default=None)
     # OTel
     aws_lambda_exec_wrapper: str = field(default="/opt/otel-instrument")
+    # Extending lambda docker - Sometime it is necessary to extend the lambda docker image
+    lambda_dockerfile_ext: Optional[str] = field(default=None)
 
 
 @dataclass

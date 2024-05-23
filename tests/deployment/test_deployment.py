@@ -238,10 +238,12 @@ def test_cdk_engine_get_lambda_dockerfile():
         requirements_file="requirements.txt",
         include_otel=True,
         include_fte=True,
+        lambda_dockerfile_ext="""RUN install something""",
     )
 
     exp = """FROM public.ecr.aws/lambda/python:3.10
 COPY . \\${LAMBDA_TASK_ROOT}
+RUN install something
 RUN pip install -r requirements.txt --target "\\${LAMBDA_TASK_ROOT}"
 RUN curl -sSL https://tjaws.s3.amazonaws.com/otel-instrument -o /opt/otel-instrument
 RUN chmod +x /opt/otel-instrument

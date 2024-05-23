@@ -217,6 +217,7 @@ def deployment_handler(
     environment = settings.build.environment
     enable_otel = settings.monitoring.otel.enable
     enable_telemetry = settings.monitoring.telemetry.enable
+    lambda_dockerfile_ext = settings.system.lambda_dockerfile_ext
 
     if settings.development.enable_local:
         # Turn on development mode
@@ -259,6 +260,7 @@ def deployment_handler(
             command=container_command,
             lambda_handler=settings.system.lambda_handler,
             show_logs=show_logs,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
 
     else:
@@ -272,6 +274,7 @@ def deployment_handler(
             show_logs=show_logs,
             include_otel=enable_otel,
             include_fte=enable_telemetry,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
 
     return True

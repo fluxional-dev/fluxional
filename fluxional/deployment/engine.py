@@ -328,10 +328,14 @@ class CDKEngine(Engine):
         requirements_file: str | None = None,
         include_otel: bool = False,
         include_fte: bool = False,
+        lambda_dockerfile_ext: str | None = None,
     ):
         dockerfile = f"FROM {base_image}"
 
         dockerfile += "\nCOPY . \${LAMBDA_TASK_ROOT}"
+
+        if lambda_dockerfile_ext:
+            dockerfile += f"\n{lambda_dockerfile_ext}"
 
         if requirements_file:
             dockerfile += (
@@ -369,6 +373,7 @@ class CDKEngine(Engine):
         base_image: str = AWS_LAMBDA_PYTHON_3_10_IMAGE,
         include_otel: bool = False,
         include_fte: bool = False,
+        lambda_dockerfile_ext: str | None = None,
     ):
         dockerfile = self.get_dockerfile(
             dependencies=dependencies, requirements_file=requirements_file
@@ -381,6 +386,7 @@ class CDKEngine(Engine):
             base_image=base_image,
             include_otel=include_otel,
             include_fte=include_fte,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
 
         for line in lambda_dockerfile.split("\n"):
@@ -414,6 +420,7 @@ class CDKEngine(Engine):
         show_logs: bool = False,
         include_otel: bool = False,
         include_fte: bool = False,
+        lambda_dockerfile_ext: str | None = None,
     ):
         rp("\n\n[bold blue]Fluxional CDK Engine \U0001F680\n")
 
@@ -443,6 +450,7 @@ class CDKEngine(Engine):
             base_image=RUNTIMES[lambda_runtime],
             include_otel=include_otel,
             include_fte=include_fte,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
 
         rp("\n\n[bold blue]  \U0001F680 Change Completed! \U0001F680 \n\n")
@@ -460,6 +468,7 @@ class CDKEngine(Engine):
         show_logs: bool = False,
         include_otel: bool = False,
         include_fte: bool = False,
+        lambda_dockerfile_ext: str | None = None,
     ):
         file_name, _ = handler.split(".")
 
@@ -477,6 +486,7 @@ class CDKEngine(Engine):
             lambda_runtime=lambda_runtime,
             include_otel=include_otel,
             include_fte=include_fte,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
 
     def destroy(
@@ -490,6 +500,7 @@ class CDKEngine(Engine):
         lambda_handler: str | None = None,
         lambda_runtime: RuntimeT = "3.10",
         show_logs: bool = False,
+        lambda_dockerfile_ext: str | None = None,
     ):
         file_name, _ = handler.split(".")
 
@@ -505,4 +516,5 @@ class CDKEngine(Engine):
             lambda_handler=lambda_handler,
             show_logs=show_logs,
             lambda_runtime=lambda_runtime,
+            lambda_dockerfile_ext=lambda_dockerfile_ext,
         )
