@@ -364,6 +364,7 @@ class Stack(CDKStack):
                 endpoint_type=resource.endpoint_type,
                 deploy=resource.deploy,
                 stage_name=resource.stage_name,
+                binary_media_types=resource.binary_media_types,
             )
 
         if resource.permissions:

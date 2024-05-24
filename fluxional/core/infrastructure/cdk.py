@@ -149,6 +149,7 @@ def add_rest_api_gateway_to_stack(
     stage_name: str,
     deploy: bool,
     endpoint_type: Literal["regional", "edge"],
+    binary_media_types: list[str] = [],
 ) -> aws_apigateway.RestApi:
     """
     Represents an api gateway. Adds it to the passed stack.
@@ -162,6 +163,7 @@ def add_rest_api_gateway_to_stack(
     api = aws_apigateway.RestApi(
         stack,
         id,
+        binary_media_types=binary_media_types,
         rest_api_name=rest_api_name,
         description=description,
         endpoint_types=[endpoint_type_mapper[endpoint_type]],

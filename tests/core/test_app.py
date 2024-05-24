@@ -45,6 +45,7 @@ def test_app_build_api_resources():
             "allowed_headers": [],
             "rest_api_id": None,
             "root_resource_id": None,
+            "binary_media_types": [],
         },
     }
 

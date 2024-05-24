@@ -123,6 +123,7 @@ class ApiGatewaySettings:
     deploy: bool = field(default=True)
     description: str = field(default="fluxional_api_gateway")
     endpoint_type: Literal["regional", "edge"] = field(default="regional")
+    binary_media_types: list[str] = field(default_factory=list)
 
 
 @dataclass

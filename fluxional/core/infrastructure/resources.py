@@ -107,6 +107,7 @@ class ApiGateway(_ResourceT):
     allowed_origins: list[str] = field(default_factory=list)
     allowed_credentials: bool = field(default=False)
     allowed_headers: list[str] = field(default_factory=list)
+    binary_media_types: list[str] = field(default_factory=list)
     # Existing Resource
     rest_api_id: Optional[str] = field(default=None)
     root_resource_id: Optional[str] = field(default=None)
