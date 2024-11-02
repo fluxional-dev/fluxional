@@ -2,10 +2,6 @@
 
 #### This is a work in progress. If you have any questions or need help, please reach out to us.
 
-<u>Join our discord community and give us feedback or ask questions:</u>
-
-[![Discord Shield](https://discordapp.com/api/guilds/1234210853574807668/widget.png?style=shield)](https://discord.gg/x8W4h5rT)
-
 <b class="theme-primary-light">Fluxional</b> is designed to simplify the development and deployment of serverless applications on AWS with <u>minimal</u> configuration.<br>
 
 Key features:<br>
