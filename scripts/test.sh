@@ -6,5 +6,5 @@ else
 fi
 
 poetry run mypy fluxional/
-poetry run ruff fluxional/ --no-cache
+poetry run ruff check fluxional/ --no-cache
 poetry run coverage html
